@@ -27,8 +27,13 @@ module SCSSLint
                     @root = selector
                 end
 
-                if !selector.start_with?('.') and !selector.start_with?('&') and !@ignoredElements.include?(selector)
-                    isViolatingElement = true
+                eachSelectors = selector.split(",")
+                eachSelectors.each do |eachSelector|
+
+                    if !eachSelector.start_with?('.') and !eachSelector.start_with?('&') and !@ignoredElements.include?(eachSelector)
+                        isViolatingElement = true
+                    end
+
                 end
 
             end
